@@ -9,7 +9,7 @@ ORDER BY population DESC
 SELECT encompasses.continent, country.name
 FROM encompasses JOIN country
 	ON encompasses.country=country.code
-ORDER BY continent, country ASC -- assuming ascending order meant
+ORDER BY encompasses.continent, country.name
 ;
 
 -- Q3 returns (organization_name,country_name))
@@ -19,6 +19,7 @@ FROM is_member JOIN organization
 	JOIN country
 	ON is_member.country=country.code
 WHERE type='member'
+ORDER BY organization.name, country.name
 ;
 
 -- Q4 returns (country,neighbour,length)
