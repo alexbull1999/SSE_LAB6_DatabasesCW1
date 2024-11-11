@@ -77,11 +77,12 @@ ORDER BY c1.name
 
 -- Q8 returns (organization,no_members,population)
 SELECT organization.name AS organization, 
-			 COUNT(country.name) AS no_members,
+			 COUNT(DISTINCT is_member.country) AS no_members,
 			 SUM(country.population) AS population
 FROM organization
 		 LEFT JOIN is_member ON organization.abbreviation=is_member.organization
 		 LEFT JOIN country ON is_member.country=country.code
+WHERE is_member.type = 'member'
 GROUP BY organization.name
 HAVING COUNT(country.name)>=20
 ORDER BY organization.name
