@@ -84,5 +84,5 @@ FROM organization
 		 JOIN country ON is_member.country=country.code
 GROUP BY organization.name
 HAVING COUNT(country.name)>=20
-ORDER BY organization.name, COUNT(country.name), SUM(country.population)
+ORDER BY organization.name
 ;
