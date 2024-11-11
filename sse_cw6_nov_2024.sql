@@ -80,8 +80,8 @@ SELECT organization.name AS organization,
 			 COUNT(country.name) AS no_members,
 			 SUM(country.population) AS population
 FROM organization
-		 JOIN is_member ON organization.abbreviation=is_member.organization
-		 JOIN country ON is_member.country=country.code
+		 LEFT JOIN is_member ON organization.abbreviation=is_member.organization
+		 LEFT JOIN country ON is_member.country=country.code
 GROUP BY organization.name
 HAVING COUNT(country.name)>=20
 ORDER BY organization.name
