@@ -30,7 +30,7 @@ FROM borders
 	JOIN country AS c2
 	ON borders.country2=c2.code OR borders.country1=c2.code
 WHERE c2.code <> c1.code
-ORDER BY c1.name, length DESC, neighbour
+ORDER BY c1.name, length DESC, c2.name
 ;
 
 -- Q5 returns (name,type)
